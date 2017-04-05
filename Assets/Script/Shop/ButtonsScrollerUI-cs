@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class ButtonsScroller : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler {
+
+    public Scrollbar scrollbar;
+    public Button buttonRight;
+    public Button buttonLeft;
+    private float step = 0.005f;
+    private bool isRight = false;
+    private bool isLeft = false;
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isLeft && scrollbar.value > 0)
+        {
+            scrollbar.value -= step;
+        }
+        else if (isRight && scrollbar.value < 1) {
+            scrollbar.value += step;
+        }
+
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+
+        print("OnPointerEnter: "+eventData.pointerEnter);
+        if (eventData.pointerEnter == buttonLeft.gameObject){
+            isRight = false;
+            isLeft = true;
+        }else if (eventData.pointerEnter == buttonRight.gameObject)
+        {
+            isLeft = false;
+            isRight = true;
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        isLeft = false;
+        isRight = false;
+    }
+    
+}

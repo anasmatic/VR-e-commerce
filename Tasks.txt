@@ -1,0 +1,16 @@
+//- clear the apprtment from furniture
+//- add waypoints and paths
+//- test waypoint movment (navigation)
+//- activate only the items near the waypoint occupied
+//- add 3d models to the apprtmnet
+//- add item data 
+//- make items inter active
+- hide details on item switch
+- add exit sign
+- check lighting
+
+- got to main scene and cahnge primatives to titles
+
+
+[ .7,.5,.5]
+[-.7,.5,.5]
